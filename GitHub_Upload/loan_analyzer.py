@@ -156,7 +156,7 @@ In this section, you will use a loop to iterate through a series of loans and se
 """
 
 print("")
-print("Part 3: Perform Financial Calculations")
+print("Part 4: Conditionally filter lists of loans")
 print("------------------------------------------------------------------")
 
 
@@ -221,6 +221,11 @@ Output this list of inexpensive loans to a csv file
 
 """
 
+print("")
+print("Part 5: Save the results")
+print("------------------------------------------------------------------")
+
+
 # Set the output header
 header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
 
@@ -230,3 +235,16 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
+
+with open(output_path,'w', newline='') as csvfile:
+    #create a csv writer
+    csv_writer = csv.writer(csvfile)
+    #write the header to the csv file using the writer
+    csv_writer.writerow(header)
+    # for each inexpensive loan, write the values to the csv file
+    for row in inexpensive_loans:
+        csv_writer.writerow(row.values())
+    print(f"Success: csv file ({output_path}) created with the values of inexpensive_loans.")
+        
+print("------------------------------------------------------------------")
+
