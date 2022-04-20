@@ -87,7 +87,8 @@ print(f"Loan's Remaining Months: {remaining_months}")
 # YOUR CODE HERE!
 
 # Using the monthly version and a return of 20% (0.2) of the present value formula we have:
-present_value = future_value / (1 + 0.2/12)**remaining_months
+discount_rate = 0.2
+present_value = future_value / (1 + discount_rate/12)**remaining_months
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
@@ -138,8 +139,8 @@ def calculate_present_value(future_value, remaining_months, annual_discount_rate
 # YOUR CODE HERE!
 remaining_months = new_loan["remaining_months"]
 future_value = new_loan["future_value"]
-print(f"New Loan remaining months: {remaining_months}, future value: {future_value}, annual discount rate: {0.2}")
-present_value = calculate_present_value(future_value, remaining_months, 0.2)
+print(f"New Loan remaining months: {remaining_months}, future value: {future_value}, annual discount rate: {discount_rate}")
+present_value = calculate_present_value(future_value, remaining_months, discount_rate)
 print(f"The present value of the New Loan is: {present_value:.2f}")
 print("------------------------------------------------------------------")
 
